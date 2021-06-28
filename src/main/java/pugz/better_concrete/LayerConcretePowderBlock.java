@@ -101,7 +101,7 @@ public class LayerConcretePowderBlock extends FallingBlock implements Waterlogga
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(Registry.BLOCK.get(new Identifier(this.color.getName() + "_concrete")));
+        return new ItemStack(Registry.BLOCK.get(new Identifier(this.color.getName() + "_concrete_powder")));
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -111,7 +111,7 @@ public class LayerConcretePowderBlock extends FallingBlock implements Waterlogga
     @SuppressWarnings("deprecation")
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            ItemStack held = player.getActiveItem();
+            ItemStack held = player.getStackInHand(hand);
 
             if (held.getItem() instanceof ShovelItem && hit.getSide() == Direction.UP) {
                 held.damage(1, player, e -> e.sendToolBreakStatus(hand));

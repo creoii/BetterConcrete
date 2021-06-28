@@ -52,10 +52,10 @@ public class BetterConcrete implements ModInitializer {
 		BlockPos pos = hit.getBlockPos();
 		BlockState state = world.getBlockState(pos);
 		if (state.getBlock() instanceof ConcretePowderBlock) {
-			ItemStack held = player.getActiveItem();
+			ItemStack held = player.getStackInHand(hand);
 			if (held.getItem() instanceof ShovelItem && hit.getSide() == Direction.UP) {
 				for (Block block : CONCRETE_POWDERS) {
-					if (block.getName().equals(state.getBlock().getName())) {
+					if (Registry.BLOCK.getId(block).getPath().equals(Registry.BLOCK.getId(state.getBlock()).getPath())) {
 						if (!player.isCreative() && !world.isClient) held.damage(1, player, e -> e.sendToolBreakStatus(hand));
 						world.setBlockState(pos, block.getDefaultState().with(LAYERS, 7).with(LayerConcretePowderBlock.WATERLOGGED, world.getFluidState(pos).isIn(FluidTags.WATER)), 3);
 						return ActionResult.success(world.isClient);
