@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "omni:black_concrete",
+              "properties": {
+                "layers": "8"
+              }
+            }
+          ],
+          "name": "minecraft:black_concrete"
+        }
+      ]
+    }
+  ]
+}

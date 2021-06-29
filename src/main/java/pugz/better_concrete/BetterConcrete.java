@@ -68,8 +68,8 @@ public class BetterConcrete implements ModInitializer {
 	}
 
 	public static <B extends Block> Block createBlock(String name, B block, ItemGroup group) {
-		Registry.register(Registry.BLOCK, new Identifier("better_concrete", name), block);
-		if (group != null) Registry.register(Registry.ITEM, new Identifier("better_concrete", name), new BlockItem(block, new Item.Settings().group(group)));
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, name), block);
+		if (group != null) Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings().group(group)));
 		return block;
 	}
 }
