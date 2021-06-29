@@ -1,4 +1,4 @@
-package pugz.better_concrete;
+package creoii.better_concrete;
 
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;

@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "better_concrete",
   "version": "${version}",
-
   "name": "Better Concrete",
   "description": "Improvements to Concrete",
   "authors": [
@@ -12,17 +11,14 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/better_concrete/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "pugz.better_concrete.BetterConcrete"
+      "creoii.better_concrete.BetterConcrete"
     ]
   },
-
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

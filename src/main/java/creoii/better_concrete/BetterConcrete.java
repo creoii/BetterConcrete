@@ -1,4 +1,4 @@
-package pugz.better_concrete;
+package creoii.better_concrete;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-import static pugz.better_concrete.LayerConcretePowderBlock.LAYERS;
+import static creoii.better_concrete.LayerConcretePowderBlock.LAYERS;
 
 public class BetterConcrete implements ModInitializer {
 	public static final String MOD_ID = "better_concrete";

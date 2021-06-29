@@ -1,4 +1,4 @@
-package pugz.better_concrete;
+package creoii.better_concrete;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
