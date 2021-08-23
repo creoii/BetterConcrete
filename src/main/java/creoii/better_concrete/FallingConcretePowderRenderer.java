@@ -1,8 +1,11 @@
 package creoii.better_concrete;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayers;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -17,6 +20,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+@Environment(EnvType.CLIENT)
 public class FallingConcretePowderRenderer extends EntityRenderer<FallingConcretePowderEntity> {
     public FallingConcretePowderRenderer(EntityRendererFactory.Context context) {
         super(context);

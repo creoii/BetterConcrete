@@ -40,6 +40,11 @@ public class FallingConcretePowderEntity extends Entity {
         this.layers = 1;
     }
 
+    public FallingConcretePowderEntity(World world) {
+        super(BetterConcrete.FALLING_CONCRETE, world);
+        this.layers = 1;
+    }
+
     public FallingConcretePowderEntity(World world, double x, double y, double z, int layers, BlockState state) {
         super(BetterConcrete.FALLING_CONCRETE, world);
         this.setPosition(x, y, z);
@@ -175,7 +180,6 @@ public class FallingConcretePowderEntity extends Entity {
     public boolean collides() {
         return !this.isRemoved();
     }
-
 
     @Override
     public boolean doesRenderOnFire() {

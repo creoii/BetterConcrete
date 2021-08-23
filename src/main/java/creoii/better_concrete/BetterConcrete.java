@@ -1,5 +1,6 @@
 package creoii.better_concrete;
 
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -24,13 +25,13 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-import static creoii.better_concrete.LayerConcretePowderBlock.LAYERS;
+import static net.minecraft.state.property.Properties.LAYERS;
 
-public class BetterConcrete implements ModInitializer {
+public class BetterConcrete implements ModInitializer, ClientModInitializer {
 	public static final String MOD_ID = "better_concrete";
 
-	public static List<Block> CONCRETES = new ArrayList<Block>();
-	public static List<Block> CONCRETE_POWDERS = new ArrayList<Block>();
+	public static List<Block> CONCRETES = new ArrayList<>();
+	public static List<Block> CONCRETE_POWDERS = new ArrayList<>();
 
 	public static final EntityType<FallingConcretePowderEntity> FALLING_CONCRETE = Registry.register(Registry.ENTITY_TYPE, new Identifier(MOD_ID, "falling_concrete"), EntityType.Builder.<FallingConcretePowderEntity>create(FallingConcretePowderEntity::new, SpawnGroup.CREATURE).setDimensions(0.98F, 0.98F).maxTrackingRange(10).trackingTickInterval(20).build("falling_concrete"));
 
@@ -44,8 +45,12 @@ public class BetterConcrete implements ModInitializer {
 			CONCRETE_POWDERS.add(CONCRETE_POWDER);
 		}
 
-		EntityRendererRegistry.INSTANCE.register(FALLING_CONCRETE, FallingConcretePowderRenderer::new);
 		UseBlockCallback.EVENT.register(this::onRightClickBlock);
+	}
+
+	@Override
+	public void onInitializeClient() {
+		EntityRendererRegistry.INSTANCE.register(FALLING_CONCRETE, FallingConcretePowderRenderer::new);
 	}
 
 	private ActionResult onRightClickBlock(PlayerEntity player, World world, Hand hand, BlockHitResult hit) {
