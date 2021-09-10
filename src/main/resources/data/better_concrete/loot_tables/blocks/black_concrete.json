@@ -9,7 +9,7 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "omni:black_concrete",
+              "block": "better_concrete:black_concrete",
               "properties": {
                 "layers": "8"
               }
